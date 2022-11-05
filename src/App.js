@@ -32,7 +32,7 @@ class App {
         computer.push(random_number_computer);
         // 컴퓨터 안에 랜덤 숫자를 넣어준다.
     
-      } //if
+      } // if
     } // while
 
     // 1-4. 플레이어 입력 받기
@@ -42,7 +42,24 @@ class App {
       var SPECIAL_CHARACTERS = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi  // 특수문자
       var EMPTY = /\s/g;                                                            // 공백
 
-    });
+      // 1-5. 입력 값 정제
+      if(SPECIAL_CHARACTERS.test(answer)){
+        // 특수문자 제거
+        input_number_player = answer.replace(SPECIAL_CHARACTERS, "");
+        // 공백 제거
+        clean_number_player = input_number_player.replace(EMPTY, "");
+        // 숫자형으로 변환 후 리턴
+        clean_number_player = Number(clean_number_player);
+        return clean_number_player;
+
+      } else {
+        // 특수문자가 없는 경우 공백 제거
+        input_number_player = answer.replace(EMPTY, "");
+        // 이후 숫자형변환
+        clean_number_player = Number(input_number_player);
+        return clean_number_player;
+      } // if
+    }); // readLine
 
   }
 }

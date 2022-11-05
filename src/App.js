@@ -92,6 +92,25 @@ class App {
     ball = computer.filter(intersection => player.includes(intersection));
     ball = ball.length;
 
+    // 2-2. 일치여부에 따른 결과값 출력
+    if(strike == 3){
+      // 3 스트라이크 --> 게임 종료 
+      MissionUtils.Console.print(strike+"스트라이크");
+      MissionUtils.Console.print(strike+"개의 숫자를 모두 맞히셨습니다! 게임 종료");
+    }
+    else if (ball == 3){
+      // 3 볼
+      MissionUtils.Console.print(ball+"볼");
+    }
+    else if (1 <= strike && strike <3 || 0 < ball && ball < 3) {
+      // 스트라이크 & 볼 : 1회 이상 3회 미만
+      MissionUtils.Console.print(ball+"볼 "+strike+"스트라이크");
+    }
+    else {
+      // 일치하는 수가 하나도 없는 경우
+      MissionUtils.Console.print(nothing);
+    }
+
   } // play
 } // App
 

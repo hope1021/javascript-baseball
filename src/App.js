@@ -39,7 +39,10 @@ class App {
     } // while
 
     // 1-4. 플레이어 입력 받기
-    MissionUtils.Console.readLine('숫자를 입력해주세요.', (answer) => {
+    MissionUtils.Console.readLine('플레이어가 입력한 숫자', (answer) => {
+      
+      // 숫자 입력 문구 출력
+      MissionUtils.Console.print(`숫자를 입력해주세요 : ${answer}`);
 
       // 정제을 위한 정규식
       var SPECIAL_CHARACTERS = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi  // 특수문자
@@ -98,6 +101,7 @@ class App {
       MissionUtils.Console.print(strike+"스트라이크");
       MissionUtils.Console.print(strike+"개의 숫자를 모두 맞히셨습니다! 게임 종료");
     }
+    // 2-3. 정답을 맞추기 전까지 재 입력받기
     else if (ball == 3){
       // 3 볼
       MissionUtils.Console.print(ball+"볼");

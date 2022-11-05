@@ -35,6 +35,15 @@ class App {
       } //if
     } // while
 
+    // 1-4. 플레이어 입력 받기
+    MissionUtils.Console.readLine('숫자를 입력해주세요.', (answer) => {
+
+      // 정제을 위한 정규식
+      var SPECIAL_CHARACTERS = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi  // 특수문자
+      var EMPTY = /\s/g;                                                            // 공백
+
+    });
+
   }
 }
 

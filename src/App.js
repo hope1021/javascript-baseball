@@ -10,7 +10,10 @@ class App {
     let random_number_computer=[]; // 라이브러리로 생성된 랜덤한 숫자
     let input_number_player=[];    // 정제 전 (type : object)
     let clean_number_player=[];    // 정제 후 (type : number)
-    let player=[];    
+    let player=[];
+    let strike = 0;                // 결과 : 같은자리, 같은값
+    let ball = 0;                  // 결과 : 다른자리, 같은값
+    let nothing = "낫싱";          // 결과 : 다른자리, 다른값
     
     // [1] 게임 시작
     // 1-1. 게임 시작 문구 출력
@@ -68,8 +71,28 @@ class App {
     for(var index=0; index<clean_number_player.length; index++){
       player.push(Number(clean_number_player[index]));
     }
+
+    // [2] 게임 진행
+    // 2-1. 컴퓨터·플레이어 일치여부 비교
+
+    // 각각의 자리 비교
+    for(var arrIndex=0; arrIndex<3; arrIndex++){
+      // 같은자리, 같은 값인 경우
+      if(computer[arrIndex] == player[arrIndex]){
+        // 스트라이크 1씩 적립
+        strike = strike+1;
+        // 같은 값은 제외시킴
+        computer.splice(arrIndex, 1);
+        player.splice(arrIndex, 1);
+      }
+    } 
     
-  }
-}
+    // 다른자리, 같은 값인 경우
+    // 컴퓨터와 플레이어 값의 교집합 찾기
+    ball = computer.filter(intersection => player.includes(intersection));
+    ball = ball.length;
+
+  } // play
+} // App
 
 module.exports = App;

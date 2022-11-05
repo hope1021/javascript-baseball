@@ -24,6 +24,15 @@ class App {
       // 테스트케이스에 들어올 랜덤 숫자는  MissionUtils 라이브러리의 Random.pickNumberInRange()을 활용하여 1~9범위의 숫자를 반환
       // * pickNumberInRange(startInclusive, endInclusive) : 숫자 범위를 지정하면 시작 또는 끝 숫자를 포함하여 범위의 숫자를 반환
       
+      // 1-3. 생성된 랜덤 숫자를 컴퓨터에게 넣어주기
+      if(!computer.includes(random_number_computer)) {
+        // 만약 테스트케이스로 들어온 랜덤 숫자가 컴퓨터(배열)에 없다면
+        // * .includes()는 문자열이 특정 문자열을 포함하는지 확인하는 메서드
+
+        computer.push(random_number_computer);
+        // 컴퓨터 안에 랜덤 숫자를 넣어준다.
+    
+      } //if
     } // while
 
   }

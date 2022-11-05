@@ -10,7 +10,11 @@ class App {
     let random_number_computer=[]; // 라이브러리로 생성된 랜덤한 숫자
     let input_number_player=[];    // 정제 전 (type : object)
     let clean_number_player=[];    // 정제 후 (type : number)
-    let player=[];       
+    let player=[];    
+    
+    // [1] 게임 시작
+    // 1-1. 게임 시작 문구 출력
+    MissionUtils.Console.print('숫자 야구 게임을 시작합니다.');
     
   }
 }

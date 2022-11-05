@@ -61,6 +61,14 @@ class App {
       } // if
     }); // readLine
 
+    // 1-6. 플레이어 값을 배열로 저장
+    // 숫자를 배열에 집어넣기 위해 문자형으로 변환 후 배열에 넣음.
+    clean_number_player = [...String(clean_number_player)];
+    // index 는 값의 위치이며, clean_number_player 길이만큼 반복한다.
+    for(var index=0; index<clean_number_player.length; index++){
+      player.push(Number(clean_number_player[index]));
+    }
+    
   }
 }
 
